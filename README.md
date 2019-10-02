@@ -10,25 +10,25 @@ a. The datasets are in the **csv** folder
 
 	The Audit dataset is an artificial dataset consisting of fictional clients who have been audited, perhaps for tax refund compliance. For each case an outcome is recorded (whether the taxpayer's claims had to be adjusted or not) and any amount of adjustment that resulted is also recorded.
 	
-	Columns: *ID, Age, Employment, Education, Marital, Occupation, Income, Gender, Deductions, Hours, IGNORE_Accounts, RISK_Adjustment, TARGET_Adjusted*
+	*Columns*: ID, Age, Employment, Education, Marital, Occupation, Income, Gender, Deductions, Hours, IGNORE_Accounts, RISK_Adjustment, TARGET_Adjusted
 	
-	Rows: 2000
+	*Rows*: 2000
 		
 2. **Auto.csv**
 
 	The Auto dataset consists information about the gas mileage, cylinders, horsepower, and other information for 392 vehicles.
 	
-	Columns: *mpg, cylinders, displacement, horsepower, weight, acceleration, model_year, origin*
+	*Columns*: mpg, cylinders, displacement, horsepower, weight, acceleration, model_year, origin
 	
-	Rows: 392
+	*Rows*: 392
 	
 3. **Iris.csv**
 
 	Perhaps the best known database to be found in the pattern recognition literature, R. A. Fisher's 1936 paper is a classic in the field and is referenced frequently to this day. The data set contains 3 classes of 50 instances ach, where each class refers to a type of iris plant.  One class is linearly separable from th other 2; the latter are NOT linearly separable from each other.
 	
-	Columns: *Sepal_Length, Sepal_Width, Petal_Length, Petal_Width, Species*
+	*Columns*: Sepal_Length, Sepal_Width, Petal_Length, Petal_Width, Species
 	
-	Rows: 150
+	*Rows*: 150
 		
 b. Statistica data mining models as Predictive Model Markup Language (PMML) are in the **PMML** folder
 
