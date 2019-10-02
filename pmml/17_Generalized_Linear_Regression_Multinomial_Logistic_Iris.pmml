@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
+	<Header copyright="STATISTICA Data Miner, Copyright 1984-2019 TIBCO Software Inc. All rights reserved."/>
+	<DataDictionary numberOfFields="5">
+		<DataField name="Species" optype="categorical" dataType="string">
+			<Value value="setosa"/>
+			<Value value="versicolor"/>
+			<Value value="virginica"/>
+		</DataField>
+		<DataField name="Sepal_Length" optype="continuous" dataType="double"/>
+		<DataField name="Sepal_Width" optype="continuous" dataType="double"/>
+		<DataField name="Petal_Length" optype="continuous" dataType="double"/>
+		<DataField name="Petal_Width" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<GeneralRegressionModel modelType="multinomialLogistic" modelName="GZLM" targetVariableName="Species" functionName="classification" targetReferenceCategory="virginica">
+		<MiningSchema>
+			<MiningField name="Species" usageType="target" invalidValueTreatment="asMissing"/>
+			<MiningField name="Sepal_Length" usageType="active" invalidValueTreatment="asMissing"/>
+			<MiningField name="Sepal_Width" usageType="active" invalidValueTreatment="asMissing"/>
+			<MiningField name="Petal_Length" usageType="active" invalidValueTreatment="asMissing"/>
+			<MiningField name="Petal_Width" usageType="active" invalidValueTreatment="asMissing"/>
+		</MiningSchema>
+		<Output>
+			<OutputField name="Probability_setosa" value="setosa" targetField="Species" feature="probability"/>
+			<OutputField name="Probability_versicolor" value="versicolor" targetField="Species" feature="probability"/>
+			<OutputField name="Probability_virginica" value="virginica" targetField="Species" feature="probability"/>
+			<OutputField name="Predicted_Species" feature="predictedValue"/>
+		</Output>
+		<ModelStats>
+			<UnivariateStats field="Species">
+				<Counts totalFreq="150"/>
+				<DiscrStats>
+					<Array type="int" n="3">50 50 50</Array>
+				</DiscrStats>
+			</UnivariateStats>
+			<UnivariateStats field="Sepal_Length">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="5.84333333333333e+00" minimum="4.30000000000000e+00" maximum="7.90000000000000e+00" standardDeviation="8.28066127977863e-01"/>
+			</UnivariateStats>
+			<UnivariateStats field="Sepal_Width">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="3.05733333333333e+00" minimum="2.00000000000000e+00" maximum="4.40000000000000e+00" standardDeviation="4.35866284936698e-01"/>
+			</UnivariateStats>
+			<UnivariateStats field="Petal_Length">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="3.75800000000000e+00" minimum="1.00000000000000e+00" maximum="6.90000000000000e+00" standardDeviation="1.76529823325947e+00"/>
+			</UnivariateStats>
+			<UnivariateStats field="Petal_Width">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="1.19933333333333e+00" minimum="1.00000000000000e-01" maximum="2.50000000000000e+00" standardDeviation="7.62237668960347e-01"/>
+			</UnivariateStats>
+		</ModelStats>
+		<ModelExplanation>
+			<PredictiveModelQuality targetField="Species" dataName="Iris" dataUsage="training" meanError="1.33333333333333e-02" numOfRecords="150" numOfPredictors="4">
+				<Extension name="chiSquare" value="4.08163265306122e-02"/>
+				<Extension name="gSquare" value="4.04054146350389e+00"/>
+			</PredictiveModelQuality>
+		</ModelExplanation>
+		<ParameterList>
+			<Parameter name="p1" label="Intercept"/>
+			<Parameter name="p2" label="Sepal_Length"/>
+			<Parameter name="p3" label="Sepal_Width"/>
+			<Parameter name="p4" label="Petal_Length"/>
+			<Parameter name="p5" label="Petal_Width"/>
+		</ParameterList>
+		<FactorList>
+		</FactorList>
+		<CovariateList>
+			<Predictor name="Sepal_Length"/>
+			<Predictor name="Sepal_Width"/>
+			<Predictor name="Petal_Length"/>
+			<Predictor name="Petal_Width"/>
+		</CovariateList>
+		<PPMatrix>
+			<PPCell value="1" predictorName="Sepal_Length" parameterName="p2"/>
+			<PPCell value="1" predictorName="Sepal_Width" parameterName="p3"/>
+			<PPCell value="1" predictorName="Petal_Length" parameterName="p4"/>
+			<PPCell value="1" predictorName="Petal_Width" parameterName="p5"/>
+		</PPMatrix>
+		<ParamMatrix>
+			<PCell targetCategory="setosa" parameterName="p1" beta="3.37288233534741e+01"/>
+			<PCell targetCategory="setosa" parameterName="p2" beta="1.13028274947098e+01"/>
+			<PCell targetCategory="setosa" parameterName="p3" beta="1.30430762018069e+01"/>
+			<PCell targetCategory="setosa" parameterName="p4" beta="-2.59707980934004e+01"/>
+			<PCell targetCategory="setosa" parameterName="p5" beta="-3.70674951853568e+01"/>
+			<PCell targetCategory="versicolor" parameterName="p1" beta="4.26378038130221e+01"/>
+			<PCell targetCategory="versicolor" parameterName="p2" beta="2.46522019518667e+00"/>
+			<PCell targetCategory="versicolor" parameterName="p3" beta="6.68088701407859e+00"/>
+			<PCell targetCategory="versicolor" parameterName="p4" beta="-9.42938515392666e+00"/>
+			<PCell targetCategory="versicolor" parameterName="p5" beta="-1.82861368878511e+01"/>
+		</ParamMatrix>
+	</GeneralRegressionModel>
+</PMML>
+

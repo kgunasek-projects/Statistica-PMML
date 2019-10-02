@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
+	<Header copyright="STATISTICA Data Miner, Copyright 1984-2019 TIBCO Software Inc. All rights reserved."/>
+	<DataDictionary numberOfFields="5">
+		<DataField name="Sepal_Length" optype="continuous" dataType="double"/>
+		<DataField name="Sepal_Width" optype="continuous" dataType="double"/>
+		<DataField name="Petal_Length" optype="continuous" dataType="double"/>
+		<DataField name="Petal_Width" optype="continuous" dataType="double"/>
+		<DataField name="Species" optype="categorical" dataType="string">
+			<Value value="setosa"/>
+			<Value value="versicolor"/>
+			<Value value="virginica"/>
+		</DataField>
+	</DataDictionary>
+	<GeneralRegressionModel modelType="generalLinear" functionName="regression" targetVariableName="Sepal_Length">
+		<MiningSchema>
+			<MiningField name="Sepal_Length" usageType="target" invalidValueTreatment="asMissing"/>
+			<MiningField name="Sepal_Width" usageType="active" invalidValueTreatment="asMissing"/>
+			<MiningField name="Petal_Length" usageType="active" invalidValueTreatment="asMissing"/>
+			<MiningField name="Petal_Width" usageType="active" invalidValueTreatment="asMissing"/>
+			<MiningField name="Species" usageType="active" invalidValueTreatment="asMissing"/>
+		</MiningSchema>
+		<ModelStats>
+			<UnivariateStats field="Sepal_Length">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="5.84333333333333e+00" minimum="4.30000000000000e+00" maximum="7.90000000000000e+00" standardDeviation="8.28066127977863e-01"/>
+			</UnivariateStats>
+			<UnivariateStats field="Sepal_Width">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="3.05733333333333e+00" minimum="2.00000000000000e+00" maximum="4.40000000000000e+00" standardDeviation="4.35866284936698e-01"/>
+			</UnivariateStats>
+			<UnivariateStats field="Petal_Length">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="3.75800000000000e+00" minimum="1.00000000000000e+00" maximum="6.90000000000000e+00" standardDeviation="1.76529823325947e+00"/>
+			</UnivariateStats>
+			<UnivariateStats field="Petal_Width">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="1.19933333333333e+00" minimum="1.00000000000000e-01" maximum="2.50000000000000e+00" standardDeviation="7.62237668960347e-01"/>
+			</UnivariateStats>
+			<UnivariateStats field="Species">
+				<Counts totalFreq="150"/>
+				<DiscrStats>
+					<Array type="int" n="3">50 50 50</Array>
+				</DiscrStats>
+			</UnivariateStats>
+		</ModelStats>
+		<ModelExplanation>
+			<PredictiveModelQuality targetField="Sepal_Length" dataName="Iris" dataUsage="training" meanError="-9.35547935417465e-16" meanAbsoluteError="2.42862782118657e-01" meanSquaredError="9.03765672131653e-02" rootMeanSquaredError="3.00626956897024e-01" r-squared="8.67312261640351e-01" adj-r-squared="8.63651910237326e-01" sumSquaredError="1.35564850819748e+01" sumSquaredRegression="1.02168333333334e+02" numOfRecords="150" numOfPredictors="4"/>
+		</ModelExplanation>
+		<ParameterList>
+			<Parameter name="p1" label="Intercept"/>
+			<Parameter name="p2" label="Sepal_Width"/>
+			<Parameter name="p3" label="Petal_Length"/>
+			<Parameter name="p4" label="Petal_Width"/>
+			<Parameter name="p5" label="Species"/>
+			<Parameter name="p6" label="Species"/>
+			<Parameter name="p7" label="Species"/>
+		</ParameterList>
+		<FactorList>
+			<Predictor name="Species"/>
+		</FactorList>
+		<CovariateList>
+			<Predictor name="Sepal_Width"/>
+			<Predictor name="Petal_Length"/>
+			<Predictor name="Petal_Width"/>
+		</CovariateList>
+		<PPMatrix>
+			<PPCell value="1" predictorName="Sepal_Width" parameterName="p2"/>
+			<PPCell value="1" predictorName="Petal_Length" parameterName="p3"/>
+			<PPCell value="1" predictorName="Petal_Width" parameterName="p4"/>
+			<PPCell value="setosa" predictorName="Species" parameterName="p5"/>
+			<PPCell value="versicolor" predictorName="Species" parameterName="p6"/>
+			<PPCell value="virginica" predictorName="Species" parameterName="p7"/>
+		</PPMatrix>
+		<ParamMatrix>
+			<PCell parameterName="p1" beta="1.14776847766424e+00"/>
+			<PCell parameterName="p2" beta="4.95888938388553e-01"/>
+			<PCell parameterName="p3" beta="8.29243912234807e-01"/>
+			<PCell parameterName="p4" beta="-3.15155173326476e-01"/>
+			<PCell parameterName="p5" beta="1.02349781449083e+00"/>
+			<PCell parameterName="p6" beta="2.99935856710102e-01"/>
+			<PCell parameterName="p7" beta="0.00000000000000e+00"/>
+		</ParamMatrix>
+	</GeneralRegressionModel>
+</PMML>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
+	<Header copyright="STATISTICA Data Miner, Copyright 1984-2019 TIBCO Software Inc. All rights reserved."/>
+	<DataDictionary numberOfFields="7">
+		<DataField name="mpg" optype="continuous" dataType="double"/>
+		<DataField name="cylinders" optype="continuous" dataType="double"/>
+		<DataField name="displacement" optype="continuous" dataType="double"/>
+		<DataField name="horsepower" optype="continuous" dataType="double"/>
+		<DataField name="weight" optype="continuous" dataType="double"/>
+		<DataField name="acceleration" optype="continuous" dataType="double"/>
+		<DataField name="model_year" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<GeneralRegressionModel modelType="generalLinear" functionName="regression" targetVariableName="mpg">
+		<MiningSchema>
+			<MiningField name="mpg" usageType="target" invalidValueTreatment="asMissing"/>
+			<MiningField name="cylinders" usageType="active" invalidValueTreatment="asMissing"/>
+			<MiningField name="displacement" usageType="active" invalidValueTreatment="asMissing"/>
+			<MiningField name="horsepower" usageType="active" invalidValueTreatment="asMissing"/>
+			<MiningField name="weight" usageType="active" invalidValueTreatment="asMissing"/>
+			<MiningField name="acceleration" usageType="active" invalidValueTreatment="asMissing"/>
+			<MiningField name="model_year" usageType="active" invalidValueTreatment="asMissing"/>
+		</MiningSchema>
+		<ModelStats>
+			<UnivariateStats field="mpg">
+				<Counts totalFreq="392"/>
+				<NumericInfo mean="2.34459183673469e+01" minimum="9.00000000000000e+00" maximum="4.66000000000000e+01" standardDeviation="7.80500748657180e+00"/>
+			</UnivariateStats>
+			<UnivariateStats field="cylinders">
+				<Counts totalFreq="392"/>
+				<NumericInfo mean="5.47193877551020e+00" minimum="3.00000000000000e+00" maximum="8.00000000000000e+00" standardDeviation="1.70578324745278e+00"/>
+			</UnivariateStats>
+			<UnivariateStats field="displacement">
+				<Counts totalFreq="392"/>
+				<NumericInfo mean="1.94411989795918e+02" minimum="6.80000000000000e+01" maximum="4.55000000000000e+02" standardDeviation="1.04644003908905e+02"/>
+			</UnivariateStats>
+			<UnivariateStats field="horsepower">
+				<Counts totalFreq="392"/>
+				<NumericInfo mean="1.04469387755102e+02" minimum="4.60000000000000e+01" maximum="2.30000000000000e+02" standardDeviation="3.84911599328285e+01"/>
+			</UnivariateStats>
+			<UnivariateStats field="weight">
+				<Counts totalFreq="392"/>
+				<NumericInfo mean="2.97758418367347e+03" minimum="1.61300000000000e+03" maximum="5.14000000000000e+03" standardDeviation="8.49402560042949e+02"/>
+			</UnivariateStats>
+			<UnivariateStats field="acceleration">
+				<Counts totalFreq="392"/>
+				<NumericInfo mean="1.55413265306122e+01" minimum="8.00000000000000e+00" maximum="2.48000000000000e+01" standardDeviation="2.75886411918808e+00"/>
+			</UnivariateStats>
+			<UnivariateStats field="model_year">
+				<Counts totalFreq="392"/>
+				<NumericInfo mean="7.59795918367347e+01" minimum="7.00000000000000e+01" maximum="8.20000000000000e+01" standardDeviation="3.68373654357782e+00"/>
+			</UnivariateStats>
+		</ModelStats>
+		<ModelExplanation>
+			<PredictiveModelQuality targetField="mpg" dataName="Auto" dataUsage="training" meanError="1.19088412600609e-14" meanAbsoluteError="2.61826404672896e+00" meanSquaredError="1.15901709814152e+01" rootMeanSquaredError="3.40443401777964e+00" r-squared="8.09255289038393e-01" adj-r-squared="8.06282644192238e-01" sumSquaredError="4.54334702471477e+03" sumSquaredRegression="2.38189934693878e+04" numOfRecords="392" numOfPredictors="6"/>
+		</ModelExplanation>
+		<ParameterList>
+			<Parameter name="p1" label="Intercept"/>
+			<Parameter name="p2" label="cylinders"/>
+			<Parameter name="p3" label="displacement"/>
+			<Parameter name="p4" label="horsepower"/>
+			<Parameter name="p5" label="weight"/>
+			<Parameter name="p6" label="acceleration"/>
+			<Parameter name="p7" label="model_year"/>
+		</ParameterList>
+		<FactorList>
+		</FactorList>
+		<CovariateList>
+			<Predictor name="cylinders"/>
+			<Predictor name="displacement"/>
+			<Predictor name="horsepower"/>
+			<Predictor name="weight"/>
+			<Predictor name="acceleration"/>
+			<Predictor name="model_year"/>
+		</CovariateList>
+		<PPMatrix>
+			<PPCell value="1" predictorName="cylinders" parameterName="p2"/>
+			<PPCell value="1" predictorName="displacement" parameterName="p3"/>
+			<PPCell value="1" predictorName="horsepower" parameterName="p4"/>
+			<PPCell value="1" predictorName="weight" parameterName="p5"/>
+			<PPCell value="1" predictorName="acceleration" parameterName="p6"/>
+			<PPCell value="1" predictorName="model_year" parameterName="p7"/>
+		</PPMatrix>
+		<ParamMatrix>
+			<PCell parameterName="p1" beta="-1.45352504805060e+01"/>
+			<PCell parameterName="p2" beta="-3.29859089073954e-01"/>
+			<PCell parameterName="p3" beta="7.67843024391955e-03"/>
+			<PCell parameterName="p4" beta="-3.91355573759139e-04"/>
+			<PCell parameterName="p5" beta="-6.79461791337516e-03"/>
+			<PCell parameterName="p6" beta="8.52732469472419e-02"/>
+			<PCell parameterName="p7" beta="7.53367179750099e-01"/>
+		</ParamMatrix>
+	</GeneralRegressionModel>
+</PMML>

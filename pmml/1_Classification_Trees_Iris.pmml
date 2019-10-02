@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
+	<Header copyright="STATISTICA Data Miner, Copyright 1984-2019 TIBCO Software Inc. All rights reserved."/>
+	<DataDictionary numberOfFields="5">
+		<DataField name="Species" optype="categorical" dataType="string">
+			<Value value="setosa"/>
+			<Value value="versicolor"/>
+			<Value value="virginica"/>
+		</DataField>
+		<DataField name="Sepal_Length" optype="continuous" dataType="double"/>
+		<DataField name="Sepal_Width" optype="continuous" dataType="double"/>
+		<DataField name="Petal_Length" optype="continuous" dataType="double"/>
+		<DataField name="Petal_Width" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<TreeModel functionName="classification" modelName="ITrees" splitCharacteristic="multiSplit">
+		<MiningSchema>
+			<MiningField name="Species" usageType="predicted" invalidValueTreatment="asMissing"/>
+			<MiningField name="Sepal_Length" invalidValueTreatment="asMissing"/>
+			<MiningField name="Sepal_Width" invalidValueTreatment="asMissing"/>
+			<MiningField name="Petal_Length" invalidValueTreatment="asMissing"/>
+			<MiningField name="Petal_Width" invalidValueTreatment="asMissing"/>
+		</MiningSchema>
+		<Output>
+			<OutputField dataType="string" optype="categorical" name="Predicted_Species" feature="predictedValue"/>
+			<OutputField dataType="double" optype="continuous" name="Probability_setosa" value="setosa" feature="probability"/>
+			<OutputField dataType="double" optype="continuous" name="Probability_versicolor" value="versicolor" feature="probability"/>
+			<OutputField dataType="double" optype="continuous" name="Probability_virginica" value="virginica" feature="probability"/>
+		</Output>
+		<ModelStats>
+			<UnivariateStats field="Species">
+				<Counts totalFreq="150"/>
+				<DiscrStats>
+					<Array type="int" n="3">50 50 50</Array>
+				</DiscrStats>
+			</UnivariateStats>
+			<UnivariateStats field="Sepal_Length">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="5.84333333333333e+00" minimum="4.30000000000000e+00" maximum="7.90000000000000e+00" standardDeviation="8.28066127977863e-01"/>
+			</UnivariateStats>
+			<UnivariateStats field="Sepal_Width">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="3.05733333333333e+00" minimum="2.00000000000000e+00" maximum="4.40000000000000e+00" standardDeviation="4.35866284936698e-01"/>
+			</UnivariateStats>
+			<UnivariateStats field="Petal_Length">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="3.75800000000000e+00" minimum="1.00000000000000e+00" maximum="6.90000000000000e+00" standardDeviation="1.76529823325947e+00"/>
+			</UnivariateStats>
+			<UnivariateStats field="Petal_Width">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="1.19933333333333e+00" minimum="1.00000000000000e-01" maximum="2.50000000000000e+00" standardDeviation="7.62237668960347e-01"/>
+			</UnivariateStats>
+		</ModelStats>
+		<ModelExplanation>
+			<PredictiveModelQuality targetField="Species" dataName="Iris" dataUsage="training" meanError="2.66666666666667e-02" numOfRecords="150" numOfPredictors="4">
+				<Extension name="chiSquare" value="2.11897524967434e-01"/>
+				<Extension name="gSquare" value="8.20781110356069e+00"/>
+			</PredictiveModelQuality>
+		</ModelExplanation>
+		<Node score="setosa" id="1">
+			<True/>
+			<ScoreDistribution value="setosa" probability="0.333333333333333" recordCount="150"/>
+			<ScoreDistribution value="versicolor" probability="0.333333333333333" recordCount="150"/>
+			<ScoreDistribution value="virginica" probability="0.333333333333333" recordCount="150"/>
+			<Node score="setosa" id="2">
+				<SimplePredicate field="Petal_Length" operator="lessOrEqual" value="2.450000000000000e+00"/>
+				<ScoreDistribution value="setosa" probability="1.000000000000000" recordCount="50"/>
+				<ScoreDistribution value="versicolor" probability="0.000000000000000" recordCount="50"/>
+				<ScoreDistribution value="virginica" probability="0.000000000000000" recordCount="50"/>
+			</Node>
+			<Node score="versicolor" id="3">
+				<SimplePredicate field="Petal_Length" operator="greaterThan" value="2.450000000000000e+00"/>
+				<ScoreDistribution value="setosa" probability="0.000000000000000" recordCount="100"/>
+				<ScoreDistribution value="versicolor" probability="0.500000000000000" recordCount="100"/>
+				<ScoreDistribution value="virginica" probability="0.500000000000000" recordCount="100"/>
+				<Node score="versicolor" id="4">
+					<SimplePredicate field="Petal_Width" operator="lessOrEqual" value="1.750000000000000e+00"/>
+					<ScoreDistribution value="setosa" probability="0.000000000000000" recordCount="54"/>
+					<ScoreDistribution value="versicolor" probability="0.907407407407407" recordCount="54"/>
+					<ScoreDistribution value="virginica" probability="0.092592592592593" recordCount="54"/>
+					<Node score="versicolor" id="6">
+						<SimplePredicate field="Petal_Length" operator="lessOrEqual" value="4.950000000000000e+00"/>
+						<ScoreDistribution value="setosa" probability="0.000000000000000" recordCount="48"/>
+						<ScoreDistribution value="versicolor" probability="0.979166666666667" recordCount="48"/>
+						<ScoreDistribution value="virginica" probability="0.020833333333333" recordCount="48"/>
+					</Node>
+					<Node score="virginica" id="7">
+						<SimplePredicate field="Petal_Length" operator="greaterThan" value="4.950000000000000e+00"/>
+						<ScoreDistribution value="setosa" probability="0.000000000000000" recordCount="6"/>
+						<ScoreDistribution value="versicolor" probability="0.333333333333333" recordCount="6"/>
+						<ScoreDistribution value="virginica" probability="0.666666666666667" recordCount="6"/>
+					</Node>
+				</Node>
+				<Node score="virginica" id="5">
+					<SimplePredicate field="Petal_Width" operator="greaterThan" value="1.750000000000000e+00"/>
+					<ScoreDistribution value="setosa" probability="0.000000000000000" recordCount="46"/>
+					<ScoreDistribution value="versicolor" probability="0.021739130434783" recordCount="46"/>
+					<ScoreDistribution value="virginica" probability="0.978260869565217" recordCount="46"/>
+				</Node>
+			</Node>
+		</Node>
+	</TreeModel>
+</PMML>

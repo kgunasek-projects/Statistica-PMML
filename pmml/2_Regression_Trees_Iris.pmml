@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
+	<Header copyright="STATISTICA Data Miner, Copyright 1984-2019 TIBCO Software Inc. All rights reserved."/>
+	<DataDictionary numberOfFields="5">
+		<DataField name="Sepal_Length" optype="continuous" dataType="double"/>
+		<DataField name="Sepal_Width" optype="continuous" dataType="double"/>
+		<DataField name="Petal_Length" optype="continuous" dataType="double"/>
+		<DataField name="Petal_Width" optype="continuous" dataType="double"/>
+		<DataField name="Species" optype="categorical" dataType="string">
+			<Value value="setosa"/>
+			<Value value="versicolor"/>
+			<Value value="virginica"/>
+		</DataField>
+	</DataDictionary>
+	<TreeModel functionName="regression" modelName="ITrees" splitCharacteristic="multiSplit">
+		<MiningSchema>
+			<MiningField name="Sepal_Length" usageType="predicted" invalidValueTreatment="asMissing"/>
+			<MiningField name="Sepal_Width" invalidValueTreatment="asMissing"/>
+			<MiningField name="Petal_Length" invalidValueTreatment="asMissing"/>
+			<MiningField name="Petal_Width" invalidValueTreatment="asMissing"/>
+			<MiningField name="Species" invalidValueTreatment="asMissing"/>
+		</MiningSchema>
+		<ModelStats>
+			<UnivariateStats field="Sepal_Length">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="5.84333333333333e+00" minimum="4.30000000000000e+00" maximum="7.90000000000000e+00" standardDeviation="8.28066127977863e-01"/>
+			</UnivariateStats>
+			<UnivariateStats field="Sepal_Width">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="3.05733333333333e+00" minimum="2.00000000000000e+00" maximum="4.40000000000000e+00" standardDeviation="4.35866284936698e-01"/>
+			</UnivariateStats>
+			<UnivariateStats field="Petal_Length">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="3.75800000000000e+00" minimum="1.00000000000000e+00" maximum="6.90000000000000e+00" standardDeviation="1.76529823325947e+00"/>
+			</UnivariateStats>
+			<UnivariateStats field="Petal_Width">
+				<Counts totalFreq="150"/>
+				<NumericInfo mean="1.19933333333333e+00" minimum="1.00000000000000e-01" maximum="2.50000000000000e+00" standardDeviation="7.62237668960347e-01"/>
+			</UnivariateStats>
+			<UnivariateStats field="Species">
+				<Counts totalFreq="150"/>
+				<DiscrStats>
+					<Array type="int" n="3">50 50 50</Array>
+				</DiscrStats>
+			</UnivariateStats>
+		</ModelStats>
+		<ModelExplanation>
+			<PredictiveModelQuality targetField="Sepal_Length" dataName="Iris" dataUsage="training" meanError="-1.48029736616688e-16" meanAbsoluteError="2.06252266252266e-01" meanSquaredError="6.74911666111666e-02" rootMeanSquaredError="2.59790620714387e-01" r-squared="9.00911812286831e-01" adj-r-squared="8.98178345039571e-01" sumSquaredError="1.01236749916750e+01" sumSquaredRegression="1.02168333333334e+02" numOfRecords="150" numOfPredictors="4"/>
+		</ModelExplanation>
+		<Node score="5.84333333333333e+00" id="1">
+			<True/>
+			<Node score="5.17945205479452e+00" id="2">
+				<SimplePredicate field="Petal_Length" operator="lessOrEqual" value="4.250000000000000e+00"/>
+				<Node score="5.00566037735849e+00" id="4">
+					<SimplePredicate field="Petal_Length" operator="lessOrEqual" value="3.400000000000000e+00"/>
+					<Node score="4.73500000000000e+00" id="6">
+						<SimplePredicate field="Sepal_Width" operator="lessOrEqual" value="3.250000000000000e+00"/>
+						<Node score="4.61818181818182e+00" id="8">
+							<SimplePredicate field="Petal_Length" operator="lessOrEqual" value="1.450000000000000e+00"/>
+						</Node>
+						<Node score="4.87777777777778e+00" id="9">
+							<SimplePredicate field="Petal_Length" operator="greaterThan" value="1.450000000000000e+00"/>
+						</Node>
+					</Node>
+					<Node score="5.16969696969697e+00" id="7">
+						<SimplePredicate field="Sepal_Width" operator="greaterThan" value="3.250000000000000e+00"/>
+						<Node score="5.04000000000000e+00" id="10">
+							<SimplePredicate field="Sepal_Width" operator="lessOrEqual" value="3.650000000000000e+00"/>
+						</Node>
+						<Node score="5.36923076923077e+00" id="11">
+							<SimplePredicate field="Sepal_Width" operator="greaterThan" value="3.650000000000000e+00"/>
+						</Node>
+					</Node>
+				</Node>
+				<Node score="5.64000000000000e+00" id="5">
+					<SimplePredicate field="Petal_Length" operator="greaterThan" value="3.400000000000000e+00"/>
+				</Node>
+			</Node>
+			<Node score="6.47272727272727e+00" id="3">
+				<SimplePredicate field="Petal_Length" operator="greaterThan" value="4.250000000000000e+00"/>
+				<Node score="6.32647058823530e+00" id="12">
+					<SimplePredicate field="Petal_Length" operator="lessOrEqual" value="6.050000000000000e+00"/>
+					<Node score="6.16511627906977e+00" id="14">
+						<SimplePredicate field="Petal_Length" operator="lessOrEqual" value="5.150000000000000e+00"/>
+						<Node score="6.05454545454546e+00" id="16">
+							<SimplePredicate field="Sepal_Width" operator="lessOrEqual" value="3.050000000000000e+00"/>
+							<Node score="5.90714285714286e+00" id="18">
+								<SimplePredicate field="Species" operator="equal" value="virginica"/>
+							</Node>
+							<Node score="6.16315789473684e+00" id="19">
+								<SimplePredicate field="Species" operator="equal" value="versicolor"/>
+								<Node score="5.99000000000000e+00" id="20">
+									<SimplePredicate field="Petal_Length" operator="lessOrEqual" value="4.550000000000000e+00"/>
+									<Node score="6.20000000000000e+00" id="22">
+										<SimplePredicate field="Petal_Length" operator="lessOrEqual" value="4.450000000000000e+00"/>
+									</Node>
+									<Node score="5.78000000000000e+00" id="23">
+										<SimplePredicate field="Petal_Length" operator="greaterThan" value="4.450000000000000e+00"/>
+									</Node>
+								</Node>
+								<Node score="6.35555555555556e+00" id="21">
+									<SimplePredicate field="Petal_Length" operator="greaterThan" value="4.550000000000000e+00"/>
+								</Node>
+							</Node>
+						</Node>
+						<Node score="6.53000000000000e+00" id="17">
+							<SimplePredicate field="Sepal_Width" operator="greaterThan" value="3.050000000000000e+00"/>
+						</Node>
+					</Node>
+					<Node score="6.60400000000000e+00" id="15">
+						<SimplePredicate field="Petal_Length" operator="greaterThan" value="5.150000000000000e+00"/>
+						<Node score="6.46666666666667e+00" id="24">
+							<SimplePredicate field="Petal_Length" operator="lessOrEqual" value="5.650000000000000e+00"/>
+							<Node score="6.32000000000000e+00" id="26">
+								<SimplePredicate field="Sepal_Width" operator="lessOrEqual" value="2.950000000000000e+00"/>
+							</Node>
+							<Node score="6.54000000000000e+00" id="27">
+								<SimplePredicate field="Sepal_Width" operator="greaterThan" value="2.950000000000000e+00"/>
+							</Node>
+						</Node>
+						<Node score="6.81000000000000e+00" id="25">
+							<SimplePredicate field="Petal_Length" operator="greaterThan" value="5.650000000000000e+00"/>
+							<Node score="6.98000000000000e+00" id="28">
+								<SimplePredicate field="Petal_Width" operator="lessOrEqual" value="2.150000000000000e+00"/>
+							</Node>
+							<Node score="6.64000000000000e+00" id="29">
+								<SimplePredicate field="Petal_Width" operator="greaterThan" value="2.150000000000000e+00"/>
+							</Node>
+						</Node>
+					</Node>
+				</Node>
+				<Node score="7.57777777777778e+00" id="13">
+					<SimplePredicate field="Petal_Length" operator="greaterThan" value="6.050000000000000e+00"/>
+				</Node>
+			</Node>
+		</Node>
+	</TreeModel>
+</PMML>

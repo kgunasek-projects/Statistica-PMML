@@ -1,0 +1,547 @@
+<PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
+	<Header copyright="Statistica Data Miner, Copyright 1984-2019 TIBCO Software Inc. All rights reserved."/>
+	<DataDictionary numberOfFields="11">
+		<DataField name="Employment" optype="categorical" dataType="string">
+			<Value value="Private"/>
+			<Value value="Consultant"/>
+			<Value value="SelfEmp"/>
+			<Value value="PSLocal"/>
+			<Value value="PSState"/>
+			<Value value="PSFederal"/>
+			<Value value="Unemployed"/>
+			<Value value="NA"/>
+			<Value value="Volunteer"/>
+		</DataField>
+		<DataField name="Education" optype="categorical" dataType="string">
+			<Value value="College"/>
+			<Value value="Associate"/>
+			<Value value="HSgrad"/>
+			<Value value="Bachelor"/>
+			<Value value="Yr12"/>
+			<Value value="Vocational"/>
+			<Value value="Master"/>
+			<Value value="Yr11"/>
+			<Value value="Yr10"/>
+			<Value value="Doctorate"/>
+			<Value value="Yr9"/>
+			<Value value="Yr5t6"/>
+			<Value value="Professional"/>
+			<Value value="Yr7t8"/>
+			<Value value="Preschool"/>
+			<Value value="Yr1t4"/>
+		</DataField>
+		<DataField name="Marital" optype="categorical" dataType="string">
+			<Value value="Unmarried"/>
+			<Value value="Absent"/>
+			<Value value="Divorced"/>
+			<Value value="Married"/>
+			<Value value="Widowed"/>
+			<Value value="Married-spouse-absent"/>
+		</DataField>
+		<DataField name="Occupation" optype="categorical" dataType="string">
+			<Value value="Service"/>
+			<Value value="Transport"/>
+			<Value value="Clerical"/>
+			<Value value="Repair"/>
+			<Value value="Executive"/>
+			<Value value="Machinist"/>
+			<Value value="Sales"/>
+			<Value value="Professional"/>
+			<Value value="Support"/>
+			<Value value="Cleaner"/>
+			<Value value="Farming"/>
+			<Value value="NA"/>
+			<Value value="Protective"/>
+			<Value value="Home"/>
+			<Value value="Military"/>
+		</DataField>
+		<DataField name="Gender" optype="categorical" dataType="string">
+			<Value value="Female"/>
+			<Value value="Male"/>
+		</DataField>
+		<DataField name="IGNORE_Accounts" optype="categorical" dataType="string">
+			<Value value="UnitedStates"/>
+			<Value value="Jamaica"/>
+			<Value value="Philippines"/>
+			<Value value="Mexico"/>
+			<Value value="Cuba"/>
+			<Value value="Malaysia"/>
+			<Value value="Germany"/>
+			<Value value="Vietnam"/>
+			<Value value="India"/>
+			<Value value="Indonesia"/>
+			<Value value="Ireland"/>
+			<Value value="NA"/>
+			<Value value="Iran"/>
+			<Value value="England"/>
+			<Value value="Portugal"/>
+			<Value value="Guatemala"/>
+			<Value value="China"/>
+			<Value value="Poland"/>
+			<Value value="Nicaragua"/>
+			<Value value="Singapore"/>
+			<Value value="Hungary"/>
+			<Value value="Italy"/>
+			<Value value="Yugoslavia"/>
+			<Value value="Thailand"/>
+			<Value value="Taiwan"/>
+			<Value value="NewZealand"/>
+			<Value value="Fiji"/>
+			<Value value="Columbia"/>
+			<Value value="Hong"/>
+			<Value value="Greece"/>
+			<Value value="Scotland"/>
+			<Value value="Ecuador"/>
+			<Value value="Japan"/>
+			<Value value="Canada"/>
+		</DataField>
+		<DataField name="Age" optype="continuous" dataType="double"/>
+		<DataField name="Income" optype="continuous" dataType="double"/>
+		<DataField name="Deductions" optype="continuous" dataType="double"/>
+		<DataField name="Hours" optype="continuous" dataType="double"/>
+		<DataField name="RISK_Adjustment" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<ClusteringModel modelName="KMeans_Model" functionName="clustering" algorithmName="KMeans" modelClass="centerBased" numberOfClusters="2">
+		<MiningSchema>
+			<MiningField name="Employment" invalidValueTreatment="returnInvalid"/>
+			<MiningField name="Education" invalidValueTreatment="returnInvalid"/>
+			<MiningField name="Marital" invalidValueTreatment="returnInvalid"/>
+			<MiningField name="Occupation" invalidValueTreatment="returnInvalid"/>
+			<MiningField name="Gender" invalidValueTreatment="returnInvalid"/>
+			<MiningField name="IGNORE_Accounts" invalidValueTreatment="returnInvalid"/>
+			<MiningField name="Age" missingValueReplacement="3.86220000000000e+01" invalidValueTreatment="asMissing"/>
+			<MiningField name="Income" missingValueReplacement="8.46884600450002e+04" invalidValueTreatment="asMissing"/>
+			<MiningField name="Deductions" missingValueReplacement="6.75683333333334e+01" invalidValueTreatment="asMissing"/>
+			<MiningField name="Hours" missingValueReplacement="4.00745000000000e+01" invalidValueTreatment="asMissing"/>
+			<MiningField name="RISK_Adjustment" missingValueReplacement="2.02096200000000e+03" invalidValueTreatment="asMissing"/>
+		</MiningSchema>
+		<Output>
+			<OutputField name="Cluster" feature="predictedValue"/>
+			<OutputField name="clusterAffinity_1" feature="clusterAffinity" value="1"/>
+			<OutputField name="clusterAffinity_2" feature="clusterAffinity" value="2"/>
+		</Output>
+		<LocalTransformations>
+			<DerivedField name="c1" optype="continuous" dataType="double">
+				<MapValues outputColumn="group">
+					<FieldColumnPair field="Employment" column="Employment"/>
+					<InlineTable>
+						<row>
+							<Employment>Private</Employment>
+							<group>1</group>
+						</row>
+						<row>
+							<Employment>Consultant</Employment>
+							<group>2</group>
+						</row>
+						<row>
+							<Employment>SelfEmp</Employment>
+							<group>3</group>
+						</row>
+						<row>
+							<Employment>PSLocal</Employment>
+							<group>4</group>
+						</row>
+						<row>
+							<Employment>PSState</Employment>
+							<group>5</group>
+						</row>
+						<row>
+							<Employment>PSFederal</Employment>
+							<group>6</group>
+						</row>
+						<row>
+							<Employment>Unemployed</Employment>
+							<group>7</group>
+						</row>
+						<row>
+							<Employment>NA</Employment>
+							<group>8</group>
+						</row>
+						<row>
+							<Employment>Volunteer</Employment>
+							<group>9</group>
+						</row>
+					</InlineTable>
+				</MapValues>
+			</DerivedField>
+			<DerivedField name="c2" optype="continuous" dataType="double">
+				<MapValues outputColumn="group">
+					<FieldColumnPair field="Education" column="Education"/>
+					<InlineTable>
+						<row>
+							<Education>College</Education>
+							<group>1</group>
+						</row>
+						<row>
+							<Education>Associate</Education>
+							<group>2</group>
+						</row>
+						<row>
+							<Education>HSgrad</Education>
+							<group>3</group>
+						</row>
+						<row>
+							<Education>Bachelor</Education>
+							<group>4</group>
+						</row>
+						<row>
+							<Education>Yr12</Education>
+							<group>5</group>
+						</row>
+						<row>
+							<Education>Vocational</Education>
+							<group>6</group>
+						</row>
+						<row>
+							<Education>Master</Education>
+							<group>7</group>
+						</row>
+						<row>
+							<Education>Yr11</Education>
+							<group>8</group>
+						</row>
+						<row>
+							<Education>Yr10</Education>
+							<group>9</group>
+						</row>
+						<row>
+							<Education>Doctorate</Education>
+							<group>10</group>
+						</row>
+						<row>
+							<Education>Yr9</Education>
+							<group>11</group>
+						</row>
+						<row>
+							<Education>Yr5t6</Education>
+							<group>12</group>
+						</row>
+						<row>
+							<Education>Professional</Education>
+							<group>13</group>
+						</row>
+						<row>
+							<Education>Yr7t8</Education>
+							<group>14</group>
+						</row>
+						<row>
+							<Education>Preschool</Education>
+							<group>15</group>
+						</row>
+						<row>
+							<Education>Yr1t4</Education>
+							<group>16</group>
+						</row>
+					</InlineTable>
+				</MapValues>
+			</DerivedField>
+			<DerivedField name="c3" optype="continuous" dataType="double">
+				<MapValues outputColumn="group">
+					<FieldColumnPair field="Marital" column="Marital"/>
+					<InlineTable>
+						<row>
+							<Marital>Unmarried</Marital>
+							<group>1</group>
+						</row>
+						<row>
+							<Marital>Absent</Marital>
+							<group>2</group>
+						</row>
+						<row>
+							<Marital>Divorced</Marital>
+							<group>3</group>
+						</row>
+						<row>
+							<Marital>Married</Marital>
+							<group>4</group>
+						</row>
+						<row>
+							<Marital>Widowed</Marital>
+							<group>5</group>
+						</row>
+						<row>
+							<Marital>Married-spouse-absent</Marital>
+							<group>6</group>
+						</row>
+					</InlineTable>
+				</MapValues>
+			</DerivedField>
+			<DerivedField name="c4" optype="continuous" dataType="double">
+				<MapValues outputColumn="group">
+					<FieldColumnPair field="Occupation" column="Occupation"/>
+					<InlineTable>
+						<row>
+							<Occupation>Service</Occupation>
+							<group>1</group>
+						</row>
+						<row>
+							<Occupation>Transport</Occupation>
+							<group>2</group>
+						</row>
+						<row>
+							<Occupation>Clerical</Occupation>
+							<group>3</group>
+						</row>
+						<row>
+							<Occupation>Repair</Occupation>
+							<group>4</group>
+						</row>
+						<row>
+							<Occupation>Executive</Occupation>
+							<group>5</group>
+						</row>
+						<row>
+							<Occupation>Machinist</Occupation>
+							<group>6</group>
+						</row>
+						<row>
+							<Occupation>Sales</Occupation>
+							<group>7</group>
+						</row>
+						<row>
+							<Occupation>Professional</Occupation>
+							<group>8</group>
+						</row>
+						<row>
+							<Occupation>Support</Occupation>
+							<group>9</group>
+						</row>
+						<row>
+							<Occupation>Cleaner</Occupation>
+							<group>10</group>
+						</row>
+						<row>
+							<Occupation>Farming</Occupation>
+							<group>11</group>
+						</row>
+						<row>
+							<Occupation>NA</Occupation>
+							<group>12</group>
+						</row>
+						<row>
+							<Occupation>Protective</Occupation>
+							<group>13</group>
+						</row>
+						<row>
+							<Occupation>Home</Occupation>
+							<group>14</group>
+						</row>
+						<row>
+							<Occupation>Military</Occupation>
+							<group>15</group>
+						</row>
+					</InlineTable>
+				</MapValues>
+			</DerivedField>
+			<DerivedField name="c5" optype="continuous" dataType="double">
+				<MapValues outputColumn="group">
+					<FieldColumnPair field="Gender" column="Gender"/>
+					<InlineTable>
+						<row>
+							<Gender>Female</Gender>
+							<group>1</group>
+						</row>
+						<row>
+							<Gender>Male</Gender>
+							<group>2</group>
+						</row>
+					</InlineTable>
+				</MapValues>
+			</DerivedField>
+			<DerivedField name="c6" optype="continuous" dataType="double">
+				<MapValues outputColumn="group">
+					<FieldColumnPair field="IGNORE_Accounts" column="IGNORE_Accounts"/>
+					<InlineTable>
+						<row>
+							<IGNORE_Accounts>UnitedStates</IGNORE_Accounts>
+							<group>1</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Jamaica</IGNORE_Accounts>
+							<group>2</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Philippines</IGNORE_Accounts>
+							<group>3</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Mexico</IGNORE_Accounts>
+							<group>4</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Cuba</IGNORE_Accounts>
+							<group>5</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Malaysia</IGNORE_Accounts>
+							<group>6</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Germany</IGNORE_Accounts>
+							<group>7</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Vietnam</IGNORE_Accounts>
+							<group>8</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>India</IGNORE_Accounts>
+							<group>9</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Indonesia</IGNORE_Accounts>
+							<group>10</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Ireland</IGNORE_Accounts>
+							<group>11</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>NA</IGNORE_Accounts>
+							<group>12</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Iran</IGNORE_Accounts>
+							<group>13</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>England</IGNORE_Accounts>
+							<group>14</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Portugal</IGNORE_Accounts>
+							<group>15</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Guatemala</IGNORE_Accounts>
+							<group>16</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>China</IGNORE_Accounts>
+							<group>17</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Poland</IGNORE_Accounts>
+							<group>18</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Nicaragua</IGNORE_Accounts>
+							<group>19</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Singapore</IGNORE_Accounts>
+							<group>20</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Hungary</IGNORE_Accounts>
+							<group>21</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Italy</IGNORE_Accounts>
+							<group>22</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Yugoslavia</IGNORE_Accounts>
+							<group>23</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Thailand</IGNORE_Accounts>
+							<group>24</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Taiwan</IGNORE_Accounts>
+							<group>25</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>NewZealand</IGNORE_Accounts>
+							<group>26</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Fiji</IGNORE_Accounts>
+							<group>27</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Columbia</IGNORE_Accounts>
+							<group>28</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Hong</IGNORE_Accounts>
+							<group>29</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Greece</IGNORE_Accounts>
+							<group>30</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Scotland</IGNORE_Accounts>
+							<group>31</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Ecuador</IGNORE_Accounts>
+							<group>32</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Japan</IGNORE_Accounts>
+							<group>33</group>
+						</row>
+						<row>
+							<IGNORE_Accounts>Canada</IGNORE_Accounts>
+							<group>34</group>
+						</row>
+					</InlineTable>
+				</MapValues>
+			</DerivedField>
+			<DerivedField name="c7" optype="continuous" dataType="double">
+				<NormContinuous field="Age">
+					<LinearNorm orig="1.70000000000000e+01" norm="0"/>
+					<LinearNorm orig="9.00000000000000e+01" norm="1"/>
+				</NormContinuous>
+			</DerivedField>
+			<DerivedField name="c8" optype="continuous" dataType="double">
+				<NormContinuous field="Income">
+					<LinearNorm orig="6.09720000000000e+02" norm="0"/>
+					<LinearNorm orig="4.81259500000000e+05" norm="1"/>
+				</NormContinuous>
+			</DerivedField>
+			<DerivedField name="c9" optype="continuous" dataType="double">
+				<NormContinuous field="Deductions">
+					<LinearNorm orig="0.00000000000000e+00" norm="0"/>
+					<LinearNorm orig="2.90400000000000e+03" norm="1"/>
+				</NormContinuous>
+			</DerivedField>
+			<DerivedField name="c10" optype="continuous" dataType="double">
+				<NormContinuous field="Hours">
+					<LinearNorm orig="1.00000000000000e+00" norm="0"/>
+					<LinearNorm orig="9.90000000000000e+01" norm="1"/>
+				</NormContinuous>
+			</DerivedField>
+			<DerivedField name="c11" optype="continuous" dataType="double">
+				<NormContinuous field="RISK_Adjustment">
+					<LinearNorm orig="-1.45300000000000e+03" norm="0"/>
+					<LinearNorm orig="1.12243000000000e+05" norm="1"/>
+				</NormContinuous>
+			</DerivedField>
+		</LocalTransformations>
+		<ComparisonMeasure kind="distance">
+			<euclidean/>
+		</ComparisonMeasure>
+		<ClusteringField field="c1" compareFunction="delta"/>
+		<ClusteringField field="c2" compareFunction="delta"/>
+		<ClusteringField field="c3" compareFunction="delta"/>
+		<ClusteringField field="c4" compareFunction="delta"/>
+		<ClusteringField field="c5" compareFunction="delta"/>
+		<ClusteringField field="c6" compareFunction="delta"/>
+		<ClusteringField field="c7" compareFunction="absDiff"/>
+		<ClusteringField field="c8" compareFunction="absDiff"/>
+		<ClusteringField field="c9" compareFunction="absDiff"/>
+		<ClusteringField field="c10" compareFunction="absDiff"/>
+		<ClusteringField field="c11" compareFunction="absDiff"/>
+		<Cluster name="Cluster_1">
+			<Array n="11" type="real">1 3 2 3 1 1 2.16717796069617e-01 2.60963810960118e-01 1.01192075970347e-02 3.55106565907959e-01 1.86448883333344e-02</Array>
+		</Cluster>
+		<Cluster name="Cluster_2">
+			<Array n="11" type="real">1 3 4 5 2 1 3.61479152631184e-01 1.04248747819916e-01 3.40684331307779e-02 4.34547042860860e-01 4.03387719246979e-02</Array>
+		</Cluster>
+	</ClusteringModel>
+</PMML>
+
