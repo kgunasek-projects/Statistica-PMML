@@ -4,7 +4,7 @@ Example Statistica analytic models as Predictive Model Markup Language (PMML) ve
 
 ## File Descriptions<a name="files"></a>
 
-a. The datasets are in the **csv** folder
+a. The datasets are in the [**csv**](https://github.com/kgunasek-projects/Statistica-PMML4/tree/master/csv) folder
 
 1. **Audit.csv**
 
@@ -30,7 +30,7 @@ a. The datasets are in the **csv** folder
 	
 	*Rows*: 150
 		
-b. Statistica data mining models as Predictive Model Markup Language (PMML) are in the **PMML** folder
+b. Statistica data mining models as Predictive Model Markup Language (PMML) are in the [**pmml**](https://github.com/kgunasek-projects/Statistica-PMML4/tree/master/pmml) folder
 
 | Model file name												  | Description
 | :---                                                            | :---: |
