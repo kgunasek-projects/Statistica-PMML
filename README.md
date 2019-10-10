@@ -1,6 +1,6 @@
-# Statistica PMML
+# PMML Files for TIBCO Statistica
 
-Example Statistica analytic models as Predictive Model Markup Language (PMML) version 4.2
+Example analytic models as Predictive Model Markup Language (PMML) version 4.2 for use with TIBCO Statistica®.
 
 ## File Descriptions<a name="files"></a>
 
@@ -16,7 +16,7 @@ a. The datasets are in the [**csv**](https://github.com/kgunasek-projects/Statis
 		
 2. **Auto.csv**
 
-	The Auto dataset consists information about the gas mileage, cylinders, horsepower, and other information for 392 vehicles.
+	The Auto dataset consists of information about the fuel mileage, cylinders, horsepower, and other information for 392 vehicles.
 	
 	*Columns*: mpg, cylinders, displacement, horsepower, weight, acceleration, model_year, origin
 	
@@ -24,13 +24,13 @@ a. The datasets are in the [**csv**](https://github.com/kgunasek-projects/Statis
 	
 3. **Iris.csv**
 
-	Perhaps the best known database to be found in the pattern recognition literature, R. A. Fisher's 1936 paper is a classic in the field and is referenced frequently to this day. The data set contains 3 classes of 50 instances ach, where each class refers to a type of iris plant.  One class is linearly separable from th other 2; the latter are NOT linearly separable from each other.
+	Perhaps the best known database to be found in the pattern recognition literature, R. A. Fisher's 1936 paper is a classic in the field and is referenced frequently to this day. The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other 2; the latter are NOT linearly separable from each other.
 	
 	*Columns*: Sepal_Length, Sepal_Width, Petal_Length, Petal_Width, Species
 	
 	*Rows*: 150
 		
-b. Statistica data mining models as Predictive Model Markup Language (PMML) are in the [**pmml**](https://github.com/kgunasek-projects/Statistica-PMML4/tree/master/pmml) folder
+b. Statistica® data mining models as Predictive Model Markup Language (PMML) are in the [**pmml**](https://github.com/kgunasek-projects/Statistica-PMML4/tree/master/pmml) folder
 
 | Model file name												  | Description
 | :---                                                            | :---: |
@@ -55,4 +55,4 @@ b. Statistica data mining models as Predictive Model Markup Language (PMML) are 
 	
 ## License<a name="license"></a>
 
-The PMML code in this repository is under a BSD-style license, refer to [LICENSE](https://github.com/kgunasek-projects/Statistica-PMML4/blob/master/LICENSE).
+The PMML code in this repository is under a BSD-style licensel; refer to [LICENSE](https://github.com/kgunasek-projects/Statistica-PMML4/blob/master/LICENSE).
