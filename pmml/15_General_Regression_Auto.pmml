@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
-	<Header copyright="STATISTICA Data Miner, Copyright 1984-2019 TIBCO Software Inc. All rights reserved."/>
-	<DataDictionary numberOfFields="7">
+	<Header copyright="TIBCO Statistica, Copyright 2019 TIBCO Software Inc. All rights reserved."/>
+	<DataDictionary numberOfFields="8">
 		<DataField name="mpg" optype="continuous" dataType="double"/>
 		<DataField name="cylinders" optype="continuous" dataType="double"/>
 		<DataField name="displacement" optype="continuous" dataType="double"/>
@@ -9,6 +9,11 @@
 		<DataField name="weight" optype="continuous" dataType="double"/>
 		<DataField name="acceleration" optype="continuous" dataType="double"/>
 		<DataField name="model_year" optype="continuous" dataType="double"/>
+		<DataField name="origin" optype="categorical" dataType="double">
+			<Value value="1"/>
+			<Value value="2"/>
+			<Value value="3"/>
+		</DataField>
 	</DataDictionary>
 	<GeneralRegressionModel modelType="generalLinear" functionName="regression" targetVariableName="mpg">
 		<MiningSchema>
@@ -19,6 +24,7 @@
 			<MiningField name="weight" usageType="active" invalidValueTreatment="asMissing"/>
 			<MiningField name="acceleration" usageType="active" invalidValueTreatment="asMissing"/>
 			<MiningField name="model_year" usageType="active" invalidValueTreatment="asMissing"/>
+			<MiningField name="origin" usageType="active" invalidValueTreatment="asMissing"/>
 		</MiningSchema>
 		<ModelStats>
 			<UnivariateStats field="mpg">
@@ -27,7 +33,7 @@
 			</UnivariateStats>
 			<UnivariateStats field="cylinders">
 				<Counts totalFreq="392"/>
-				<NumericInfo mean="5.47193877551020e+00" minimum="3.00000000000000e+00" maximum="8.00000000000000e+00" standardDeviation="1.70578324745278e+00"/>
+				<NumericInfo mean="5.47193877551021e+00" minimum="3.00000000000000e+00" maximum="8.00000000000000e+00" standardDeviation="1.70578324745278e+00"/>
 			</UnivariateStats>
 			<UnivariateStats field="displacement">
 				<Counts totalFreq="392"/>
@@ -49,9 +55,15 @@
 				<Counts totalFreq="392"/>
 				<NumericInfo mean="7.59795918367347e+01" minimum="7.00000000000000e+01" maximum="8.20000000000000e+01" standardDeviation="3.68373654357782e+00"/>
 			</UnivariateStats>
+			<UnivariateStats field="origin">
+				<Counts totalFreq="392"/>
+				<DiscrStats>
+					<Array type="int" n="3">245 68 79</Array>
+				</DiscrStats>
+			</UnivariateStats>
 		</ModelStats>
 		<ModelExplanation>
-			<PredictiveModelQuality targetField="mpg" dataName="Auto" dataUsage="training" meanError="1.19088412600609e-14" meanAbsoluteError="2.61826404672896e+00" meanSquaredError="1.15901709814152e+01" rootMeanSquaredError="3.40443401777964e+00" r-squared="8.09255289038393e-01" adj-r-squared="8.06282644192238e-01" sumSquaredError="4.54334702471477e+03" sumSquaredRegression="2.38189934693878e+04" numOfRecords="392" numOfPredictors="6"/>
+			<PredictiveModelQuality targetField="mpg" dataName="Auto" dataUsage="training" meanError="2.41167630083881e-14" meanAbsoluteError="2.50538929737833e+00" meanSquaredError="1.06821216277626e+01" rootMeanSquaredError="3.26835151533042e+00" r-squared="8.24199469911917e-01" adj-r-squared="8.20994772748853e-01" sumSquaredError="4.18739167808295e+03" sumSquaredRegression="2.38189934693878e+04" numOfRecords="392" numOfPredictors="7"/>
 		</ModelExplanation>
 		<ParameterList>
 			<Parameter name="p1" label="Intercept"/>
@@ -61,8 +73,12 @@
 			<Parameter name="p5" label="weight"/>
 			<Parameter name="p6" label="acceleration"/>
 			<Parameter name="p7" label="model_year"/>
+			<Parameter name="p8" label="origin"/>
+			<Parameter name="p9" label="origin"/>
+			<Parameter name="p10" label="origin"/>
 		</ParameterList>
 		<FactorList>
+			<Predictor name="origin"/>
 		</FactorList>
 		<CovariateList>
 			<Predictor name="cylinders"/>
@@ -79,15 +95,21 @@
 			<PPCell value="1" predictorName="weight" parameterName="p5"/>
 			<PPCell value="1" predictorName="acceleration" parameterName="p6"/>
 			<PPCell value="1" predictorName="model_year" parameterName="p7"/>
+			<PPCell value="1" predictorName="origin" parameterName="p8"/>
+			<PPCell value="2" predictorName="origin" parameterName="p9"/>
+			<PPCell value="3" predictorName="origin" parameterName="p10"/>
 		</PPMatrix>
 		<ParamMatrix>
-			<PCell parameterName="p1" beta="-1.45352504805060e+01"/>
-			<PCell parameterName="p2" beta="-3.29859089073954e-01"/>
-			<PCell parameterName="p3" beta="7.67843024391955e-03"/>
-			<PCell parameterName="p4" beta="-3.91355573759139e-04"/>
-			<PCell parameterName="p5" beta="-6.79461791337516e-03"/>
-			<PCell parameterName="p6" beta="8.52732469472419e-02"/>
-			<PCell parameterName="p7" beta="7.53367179750099e-01"/>
+			<PCell parameterName="p1" beta="-1.51013738388124e+01"/>
+			<PCell parameterName="p2" beta="-4.89709424047196e-01"/>
+			<PCell parameterName="p3" beta="2.39786440278740e-02"/>
+			<PCell parameterName="p4" beta="-1.81834640388503e-02"/>
+			<PCell parameterName="p5" beta="-6.71038412737689e-03"/>
+			<PCell parameterName="p6" beta="7.91030360112910e-02"/>
+			<PCell parameterName="p7" beta="7.77026939101016e-01"/>
+			<PCell parameterName="p8" beta="-2.85322822847749e+00"/>
+			<PCell parameterName="p9" beta="-2.23225868460096e-01"/>
+			<PCell parameterName="p10" beta="0.00000000000000e+00"/>
 		</ParamMatrix>
 	</GeneralRegressionModel>
 </PMML>

@@ -10,9 +10,9 @@ a. The datasets are in the [**csv**](https://github.com/kgunasek-projects/Statis
 
 	The Audit dataset is an artificial dataset consisting of fictional clients who have been audited, perhaps for tax refund compliance. For each case an outcome is recorded (whether the taxpayer's claims had to be adjusted or not) and any amount of adjustment that resulted is also recorded.
 	
-	*Columns*: ID, Age, Employment, Education, Marital, Occupation, Income, Gender, Deductions, Hours, IGNORE_Accounts, RISK_Adjustment, TARGET_Adjusted
+	*Columns*: Age, Employment, Education, Marital, Occupation, Income, Gender, Deductions, Hours, Adjusted
 	
-	*Rows*: 2000
+	*Rows*: 1899
 		
 2. **Auto.csv**
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
-	<Header copyright="STATISTICA Data Miner, Copyright 1984-2019 TIBCO Software Inc. All rights reserved."/>
+	<Header copyright="TIBCO Statistica, Copyright 2019 TIBCO Software Inc. All rights reserved."/>
 	<DataDictionary numberOfFields="5">
 		<DataField name="Species" optype="categorical" dataType="string">
 			<Value value="setosa"/>
@@ -78,17 +78,16 @@
 			<PPCell value="1" predictorName="Petal_Width" parameterName="p5"/>
 		</PPMatrix>
 		<ParamMatrix>
-			<PCell targetCategory="setosa" parameterName="p1" beta="3.37288233534741e+01"/>
-			<PCell targetCategory="setosa" parameterName="p2" beta="1.13028274947098e+01"/>
-			<PCell targetCategory="setosa" parameterName="p3" beta="1.30430762018069e+01"/>
-			<PCell targetCategory="setosa" parameterName="p4" beta="-2.59707980934004e+01"/>
-			<PCell targetCategory="setosa" parameterName="p5" beta="-3.70674951853568e+01"/>
-			<PCell targetCategory="versicolor" parameterName="p1" beta="4.26378038130221e+01"/>
+			<PCell targetCategory="setosa" parameterName="p1" beta="3.37288233534713e+01"/>
+			<PCell targetCategory="setosa" parameterName="p2" beta="1.13028274947106e+01"/>
+			<PCell targetCategory="setosa" parameterName="p3" beta="1.30430762018066e+01"/>
+			<PCell targetCategory="setosa" parameterName="p4" beta="-2.59707980934010e+01"/>
+			<PCell targetCategory="setosa" parameterName="p5" beta="-3.70674951853560e+01"/>
+			<PCell targetCategory="versicolor" parameterName="p1" beta="4.26378038130220e+01"/>
 			<PCell targetCategory="versicolor" parameterName="p2" beta="2.46522019518667e+00"/>
-			<PCell targetCategory="versicolor" parameterName="p3" beta="6.68088701407859e+00"/>
-			<PCell targetCategory="versicolor" parameterName="p4" beta="-9.42938515392666e+00"/>
-			<PCell targetCategory="versicolor" parameterName="p5" beta="-1.82861368878511e+01"/>
+			<PCell targetCategory="versicolor" parameterName="p3" beta="6.68088701407853e+00"/>
+			<PCell targetCategory="versicolor" parameterName="p4" beta="-9.42938515392664e+00"/>
+			<PCell targetCategory="versicolor" parameterName="p5" beta="-1.82861368878510e+01"/>
 		</ParamMatrix>
 	</GeneralRegressionModel>
 </PMML>
-

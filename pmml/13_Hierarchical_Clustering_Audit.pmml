@@ -1,74 +1,75 @@
+<?xml version="1.0"?>
 <PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
-	<Header copyright="Statistica Data Miner, Copyright 1984-2019 TIBCO Software Inc. All rights reserved."/>
-	<DataDictionary numberOfFields="5">
-		<DataField name="Age" optype="continuous" dataType="double"/>
-		<DataField name="Income" optype="continuous" dataType="double"/>
-		<DataField name="Deductions" optype="continuous" dataType="double"/>
-		<DataField name="Hours" optype="continuous" dataType="double"/>
-		<DataField name="RISK_Adjustment" optype="continuous" dataType="double"/>
-	</DataDictionary>
-	<ClusteringModel modelName="HClust_Model" functionName="clustering" algorithmName="HClust" modelClass="centerBased" numberOfClusters="3">
-		<MiningSchema>
-			<MiningField name="Age" missingValueReplacement="3.86220000000000e+01" invalidValueTreatment="asMissing"/>
-			<MiningField name="Income" missingValueReplacement="8.46884600450002e+04" invalidValueTreatment="asMissing"/>
-			<MiningField name="Deductions" missingValueReplacement="6.75683333333334e+01" invalidValueTreatment="asMissing"/>
-			<MiningField name="Hours" missingValueReplacement="4.00745000000000e+01" invalidValueTreatment="asMissing"/>
-			<MiningField name="RISK_Adjustment" missingValueReplacement="2.02096200000000e+03" invalidValueTreatment="asMissing"/>
-		</MiningSchema>
-		<Output>
-			<OutputField name="Cluster" feature="predictedValue"/>
-			<OutputField name="clusterAffinity_1" feature="clusterAffinity" value="1"/>
-			<OutputField name="clusterAffinity_2" feature="clusterAffinity" value="2"/>
-			<OutputField name="clusterAffinity_3" feature="clusterAffinity" value="3"/>
-		</Output>
-		<LocalTransformations>
-			<DerivedField name="c1" optype="continuous" dataType="double">
-				<NormContinuous field="Age">
-					<LinearNorm orig="0" norm="-2.84304124775235e+00"/>
-					<LinearNorm orig="3.86220000000000e+01" norm="0"/>
-				</NormContinuous>
-			</DerivedField>
-			<DerivedField name="c2" optype="continuous" dataType="double">
-				<NormContinuous field="Income">
-					<LinearNorm orig="0" norm="-1.21640993472797e+00"/>
-					<LinearNorm orig="8.46884600450002e+04" norm="0"/>
-				</NormContinuous>
-			</DerivedField>
-			<DerivedField name="c3" optype="continuous" dataType="double">
-				<NormContinuous field="Deductions">
-					<LinearNorm orig="0" norm="-1.98319343377023e-01"/>
-					<LinearNorm orig="6.75683333333334e+01" norm="0"/>
-				</NormContinuous>
-			</DerivedField>
-			<DerivedField name="c4" optype="continuous" dataType="double">
-				<NormContinuous field="Hours">
-					<LinearNorm orig="0" norm="-3.29730436976639e+00"/>
-					<LinearNorm orig="4.00745000000000e+01" norm="0"/>
-				</NormContinuous>
-			</DerivedField>
-			<DerivedField name="c5" optype="continuous" dataType="double">
-				<NormContinuous field="RISK_Adjustment">
-					<LinearNorm orig="0" norm="-2.42267194782434e-01"/>
-					<LinearNorm orig="2.02096200000000e+03" norm="0"/>
-				</NormContinuous>
-			</DerivedField>
-		</LocalTransformations>
-		<ComparisonMeasure kind="distance">
-			<squaredEuclidean/>
-		</ComparisonMeasure>
-		<ClusteringField field="c1" compareFunction="absDiff"/>
-		<ClusteringField field="c2" compareFunction="absDiff"/>
-		<ClusteringField field="c3" compareFunction="absDiff"/>
-		<ClusteringField field="c4" compareFunction="absDiff"/>
-		<ClusteringField field="c5" compareFunction="absDiff"/>
-		<Cluster name="Cluster_1">
-			<Array n="5" type="real">2.84599895258828e-01 -4.19264034912633e-01 -1.98319343377023e-01 2.39617683775653e-01 -3.26138623224513e-02</Array>
-		</Cluster>
-		<Cluster name="Cluster_2">
-			<Array n="5" type="real">-7.69593000630859e-01 1.08443743953347e+00 -1.92630599455653e-01 -6.04225988953629e-01 -1.83927555789406e-01</Array>
-		</Cluster>
-		<Cluster name="Cluster_3">
-			<Array n="5" type="real">3.99885788972687e-01 -2.94348177522358e-01 4.07896193485441e+00 7.52552104038706e-02 1.58097587737024e+00</Array>
-		</Cluster>
-	</ClusteringModel>
+  <Header copyright="TIBCO Statistica, Copyright 2019 TIBCO Software Inc. All rights reserved."/>
+  <DataDictionary numberOfFields="5">
+    <DataField name="Age" optype="continuous" dataType="double"/>
+    <DataField name="Income" optype="continuous" dataType="double"/>
+    <DataField name="Deductions" optype="continuous" dataType="double"/>
+    <DataField name="Hours" optype="continuous" dataType="double"/>
+    <DataField name="Adjusted" optype="continuous" dataType="double"/>
+  </DataDictionary>
+  <ClusteringModel modelName="HClust_Model" functionName="clustering" algorithmName="HClust" modelClass="centerBased" numberOfClusters="3">
+    <MiningSchema>
+      <MiningField name="Age" missingValueReplacement="3.83027909426013e+01" invalidValueTreatment="asMissing"/>
+      <MiningField name="Income" missingValueReplacement="8.44048706951026e+04" invalidValueTreatment="asMissing"/>
+      <MiningField name="Deductions" missingValueReplacement="6.86596454274178e+01" invalidValueTreatment="asMissing"/>
+      <MiningField name="Hours" missingValueReplacement="4.05671406003160e+01" invalidValueTreatment="asMissing"/>
+      <MiningField name="Adjusted" missingValueReplacement="2.35387045813586e-01" invalidValueTreatment="asMissing"/>
+    </MiningSchema>
+    <Output>
+      <OutputField name="Cluster" feature="predictedValue"/>
+      <OutputField name="clusterAffinity_1" feature="clusterAffinity" value="1"/>
+      <OutputField name="clusterAffinity_2" feature="clusterAffinity" value="2"/>
+      <OutputField name="clusterAffinity_3" feature="clusterAffinity" value="3"/>
+    </Output>
+    <LocalTransformations>
+      <DerivedField name="c1" optype="continuous" dataType="double">
+        <NormContinuous field="Age">
+          <LinearNorm orig="0" norm="-2.94325546911022e+00"/>
+          <LinearNorm orig="3.83027909426013e+01" norm="0"/>
+        </NormContinuous>
+      </DerivedField>
+      <DerivedField name="c2" optype="continuous" dataType="double">
+        <NormContinuous field="Income">
+          <LinearNorm orig="0" norm="-1.21116526182256e+00"/>
+          <LinearNorm orig="8.44048706951026e+04" norm="0"/>
+        </NormContinuous>
+      </DerivedField>
+      <DerivedField name="c3" optype="continuous" dataType="double">
+        <NormContinuous field="Deductions">
+          <LinearNorm orig="0" norm="-2.01497514569884e-01"/>
+          <LinearNorm orig="6.86596454274178e+01" norm="0"/>
+        </NormContinuous>
+      </DerivedField>
+      <DerivedField name="c4" optype="continuous" dataType="double">
+        <NormContinuous field="Hours">
+          <LinearNorm orig="0" norm="-3.47937073203343e+00"/>
+          <LinearNorm orig="4.05671406003160e+01" norm="0"/>
+        </NormContinuous>
+      </DerivedField>
+      <DerivedField name="c5" optype="continuous" dataType="double">
+        <NormContinuous field="Adjusted">
+          <LinearNorm orig="0" norm="-5.54697329522070e-01"/>
+          <LinearNorm orig="2.35387045813586e-01" norm="0"/>
+        </NormContinuous>
+      </DerivedField>
+    </LocalTransformations>
+    <ComparisonMeasure kind="distance">
+      <squaredEuclidean/>
+    </ComparisonMeasure>
+    <ClusteringField field="c1" compareFunction="absDiff"/>
+    <ClusteringField field="c2" compareFunction="absDiff"/>
+    <ClusteringField field="c3" compareFunction="absDiff"/>
+    <ClusteringField field="c4" compareFunction="absDiff"/>
+    <ClusteringField field="c5" compareFunction="absDiff"/>
+    <Cluster name="Cluster_1">
+      <Array n="5" type="real">-1.35808223776814e-01 1.55965979493311e-01 -1.99324999238863e-01 -1.24761909650775e-01 -5.12148817920307e-01</Array>
+    </Cluster>
+    <Cluster name="Cluster_2">
+      <Array n="5" type="real">4.38794885408885e-01 -5.24923826623416e-01 -2.01497514569884e-01 4.70254995565705e-01 1.80183562072941e+00</Array>
+    </Cluster>
+    <Cluster name="Cluster_3">
+      <Array n="5" type="real">3.64832731433498e-01 -3.17974131056565e-01 4.60249436000658e+00 1.21550833182990e-02 6.68313442127431e-01</Array>
+    </Cluster>
+  </ClusteringModel>
 </PMML>
