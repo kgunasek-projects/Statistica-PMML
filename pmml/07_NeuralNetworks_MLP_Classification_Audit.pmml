@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
-  <Header copyright="TIBCO Statistica, Copyright 2019 TIBCO Software Inc. All rights reserved.">
+  <Header copyright="TIBCO Statistica, Copyright 2019 TIBCO Software Inc.">
     <Application name="STATISTICA Automated Neural Networks (SANN)" version="2.0"/>
   </Header>
   <DataDictionary numberOfFields="10">

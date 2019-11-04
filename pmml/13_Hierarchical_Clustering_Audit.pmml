@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
-  <Header copyright="TIBCO Statistica, Copyright 2019 TIBCO Software Inc. All rights reserved."/>
+  <Header copyright="TIBCO Statistica, Copyright 2019 TIBCO Software Inc."/>
   <DataDictionary numberOfFields="5">
     <DataField name="Age" optype="continuous" dataType="double"/>
     <DataField name="Income" optype="continuous" dataType="double"/>
